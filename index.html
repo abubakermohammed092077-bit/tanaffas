@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- CSP from the official sample: allows the SDK's blob: worker and the camera preview. -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; media-src blob:;">
+    <title>Tanaffas · تنفّس</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tanaffas <span lang="ar" dir="rtl">تنفّس</span></h1>
+        <span id="status" class="status">Uninitialized</span>
+    </header>
+
+    <div id="error" class="error" hidden></div>
+
+    <main>
+        <div class="preview">
+            <video id="preview" autoplay playsinline muted></video>
+            <div id="hint" class="hint">Sit still, face and chest visible, good light. Then press Start.</div>
+        </div>
+
+        <div class="readouts">
+            <div class="readout">
+                <div class="label">Breathing <span lang="ar" dir="rtl">التنفّس</span></div>
+                <div class="value"><span id="breathing">—</span> <span class="unit">breaths/min</span></div>
+                <div class="note">First reading takes about 30 seconds.</div>
+            </div>
+            <div class="readout">
+                <div class="label">Pulse <span lang="ar" dir="rtl">النبض</span></div>
+                <div class="value"><span id="pulse">—</span> <span class="unit">BPM</span></div>
+                <div class="note">Needs an API key enabled for cardio metrics.</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <label><input type="checkbox" id="measure-pulse" checked> Measure pulse</label>
+            <button id="btn-start" type="button">Start</button>
+            <button id="btn-stop" type="button" disabled>Stop</button>
+        </div>
+
+        <p class="disclaimer">For general wellness only — not a medical device.</p>
+    </main>
+
+    <script src="./dist/renderer.bundle.js"></script>
+</body>
+</html>

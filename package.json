@@ -1,0 +1,18 @@
+{
+  "name": "tanaffas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tanaffas (تنفّس) — a calm, bilingual breathing companion built on the Presage SmartSpectra SDK.",
+  "main": "main.js",
+  "scripts": {
+    "build": "esbuild renderer.js --bundle --outfile=dist/renderer.bundle.js --platform=browser --format=iife --log-level=warning",
+    "start": "npm run build && electron ."
+  },
+  "dependencies": {
+    "@smartspectra/node-sdk": "latest"
+  },
+  "devDependencies": {
+    "electron": "43.8.1",
+    "esbuild": "^0.25.0"
+  }
+}
